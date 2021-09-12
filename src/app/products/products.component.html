@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+			crossorigin="anonymous"
+		/>
+
+		<title>Product Menu</title>
+	</head>
+	<body>
+		<div class="container">
+      <div class="row">
+        <ng-container *ngFor="let item of product_list">
+            <div class="card col-md-3 d-flex justify-content-around">
+                <img src="{{item.src}}" class="card-img-top rounded mx-auto"alt="..."style="height: 15rem; width: 18rem">
+                <div class="card-body">
+                  <h4 class="card-title">{{item.pname}}</h4>
+                  <div style="max-height: 100px;overflow: hidden;text-overflow: ellipsis;"class="my-2">
+                    <p class="card-text">{{item.comments}}</p>
+                  </div>
+                  <p><span class="fw-bold">Price</span>: {{item.price}}&#x20b9; </p>
+                  <button class="btn btn-primary  w-100"(click)=addtocart(item.id)>Add to cart</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+			crossorigin="anonymous"></script>
+    </div>
+    <button routerLink='/cart-display' type="button" class="btn btn-info btn-lg" style="position: fixed; bottom: 20px; right: 10px;">Cart Value: &#x20b9;{{sum}} Cart items: {{count}}
+    </button>
+	</body>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; Made by DS Rahul</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Contact</a></li>
+      <li class="list-inline-item"><a href="#">Terms and Conditions</a></li>
+    </ul>
+  </footer>
+</html>
